@@ -43,6 +43,10 @@ export class NanoIpfs {
    */
   accountToIpfsCidV0(ipfsAccount: string): string {
     const ipfsPublicKey: string = this.accountToPublicKey(ipfsAccount);
+    return this.hexToIpfsCidV0(ipfsPublicKey);
+  }
+
+  hexToIpfsCidV0(hex: string): string {
     const ipfsCidHex: string = `1220${ipfsPublicKey}`;
     this.validateIpfsCidV0Hex(ipfsCidHex);
 
@@ -55,7 +59,7 @@ export class NanoIpfs {
 
   private validateIpfsCidV0(ipfsCidV0: string) {
     if (typeof(ipfsCidV0) !== 'string') {
-      throw Error(`ipfsCidV0 expected to be string, got: ${typeof(ipfsCidV0)}`);
+      throw Error(`ipfsCidV0: expected to be string, got: ${typeof(ipfsCidV0)}`);
     }
 
     if (!cidV0B58Pattern.test(ipfsCidV0)) {
@@ -65,7 +69,7 @@ export class NanoIpfs {
 
   private validateIpfsCidV0Hex(ipfsCidV0Hex: string) {
     if (typeof(ipfsCidV0Hex) !== 'string') {
-      throw Error(`ipfsCidV0Hex expected to be string, got: ${typeof(ipfsCidV0Hex)}`);
+      throw Error(`ipfsCidV0Hex: expected to be string, got: ${typeof(ipfsCidV0Hex)}`);
     }
 
     if (!cidV0HexPattern.test(ipfsCidV0Hex)) {
