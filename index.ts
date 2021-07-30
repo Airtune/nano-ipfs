@@ -47,7 +47,7 @@ export class NanoIpfs {
   }
 
   hexToIpfsCidV0(hex: string): string {
-    const ipfsCidHex: string = `1220${ipfsPublicKey}`;
+    const ipfsCidHex: string = `1220${hex}`;
     this.validateIpfsCidV0Hex(ipfsCidHex);
 
     const bytes: (Buffer | Uint8Array | number[]) = this.hexToBytes(ipfsCidHex);
