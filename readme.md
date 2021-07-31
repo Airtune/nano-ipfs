@@ -4,7 +4,7 @@ Library for converting between v0 IPFS CIDs and Nano addresses.
 # Installation
 To install it without `devDependencies` run:
 ```
-npm install --only=production
+npm install --only=production https://github.com/Airtune/nano-ipfs
 ```
 
 `devDependencies` include things like mocha, nanocurrency, and bananojs used for tests.
