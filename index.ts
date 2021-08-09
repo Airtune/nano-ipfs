@@ -4,8 +4,8 @@ const cidV0B58Pattern: RegExp = new RegExp('^Qm[0-9A-Za-z]{0,64}$');
 const cidV0HexPattern: RegExp = new RegExp('^1220[0-9A-Fa-f]{64}$');
 
 export class NanoIpfs {
-  private publicKeyToAccount: Function;
-  private accountToPublicKey: Function;
+  public publicKeyToAccount: Function;
+  public accountToPublicKey: Function;
   /**
    * Constructor taking account/key conversion functions, from nanocurrency or bananojs, as parameters.
    * @memberof NanoIpfs
