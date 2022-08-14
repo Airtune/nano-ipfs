@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { NanoIpfs } from '../index';
-import * as bananojs from '@bananocoin/bananojs';
+const bananojs = require('@bananocoin/bananojs/index.js');
 
 const validCid: string = 'QmbzTMo42KADUbLwc43KR9Se6aV3N6wfKqFbSr2qN1gJqR';
 const invalidCid1: string = 'mbzTMo42KADUbLwc43KR9Se6aV3N6wfKqFbSr2qN1gJqR';

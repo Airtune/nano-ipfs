@@ -37,7 +37,10 @@ var NanoIpfs = /** @class */ (function () {
      */
     NanoIpfs.prototype.accountToIpfsCidV0 = function (ipfsAccount) {
         var ipfsPublicKey = this.accountToPublicKey(ipfsAccount);
-        var ipfsCidHex = "1220" + ipfsPublicKey;
+        return this.hexToIpfsCidV0(ipfsPublicKey);
+    };
+    NanoIpfs.prototype.hexToIpfsCidV0 = function (hex) {
+        var ipfsCidHex = "1220".concat(hex);
         this.validateIpfsCidV0Hex(ipfsCidHex);
         var bytes = this.hexToBytes(ipfsCidHex);
         var ipfsCidV0 = bs58.encode(bytes);
@@ -46,18 +49,18 @@ var NanoIpfs = /** @class */ (function () {
     };
     NanoIpfs.prototype.validateIpfsCidV0 = function (ipfsCidV0) {
         if (typeof (ipfsCidV0) !== 'string') {
-            throw Error("ipfsCidV0 expected to be string, got: " + typeof (ipfsCidV0));
+            throw Error("ipfsCidV0: expected to be string, got: ".concat(typeof (ipfsCidV0)));
         }
         if (!cidV0B58Pattern.test(ipfsCidV0)) {
-            throw Error("ipfsCidV0:'" + ipfsCidV0 + "' not valid v0 CID (Qm+base58)");
+            throw Error("ipfsCidV0:'".concat(ipfsCidV0, "' not valid v0 CID (Qm+base58)"));
         }
     };
     NanoIpfs.prototype.validateIpfsCidV0Hex = function (ipfsCidV0Hex) {
         if (typeof (ipfsCidV0Hex) !== 'string') {
-            throw Error("ipfsCidV0Hex expected to be string, got: " + typeof (ipfsCidV0Hex));
+            throw Error("ipfsCidV0Hex: expected to be string, got: ".concat(typeof (ipfsCidV0Hex)));
         }
         if (!cidV0HexPattern.test(ipfsCidV0Hex)) {
-            throw Error("ipfsCidV0Hex:'" + ipfsCidV0Hex + "' not 64 hex chars after prefix 1220, " + ipfsCidV0Hex.length);
+            throw Error("ipfsCidV0Hex:'".concat(ipfsCidV0Hex, "' not 64 hex chars after prefix 1220, ").concat(ipfsCidV0Hex.length));
         }
     };
     NanoIpfs.prototype.hexToBytes = function (hexString) {
