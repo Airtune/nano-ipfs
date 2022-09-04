@@ -4,12 +4,14 @@ Library for converting between v0 IPFS CIDs and Nano addresses.
 # Installation
 To install it without `devDependencies` run:
 ```
-npm install --only=production https://github.com/Airtune/nano-ipfs
+npm i --only=production nano-ipfs
 ```
 
 `devDependencies` include things like mocha, nanocurrency, and bananojs used for tests.
 
 # Run tests
+
+Download the repository from GitHub.
 
 ```
 npm install --only=dev
@@ -19,7 +21,7 @@ npm test
 # Examples
 ## Setup with nanocurrency
 ```
-import { NanoIpfs } from 'Airtune/nano-ipfs';
+import { NanoIpfs } from 'nano-ipfs';
 import * as nanocurrency from 'nanocurrency';
 
 const publicKeyToAccount = nanocurrency.deriveAddress;
@@ -29,7 +31,7 @@ const nanoIpfs = new NanoIpfs(publicKeyToAccount, accountToPublicKey);
 
 ## Setup with bananojs
 ```
-import { NanoIpfs } from '../index';
+import { NanoIpfs } from 'nano-ipfs';
 import * as bananojs from '@bananocoin/bananojs';
 const publicKeyToAccount = (publicKey) => {
   return bananojs.bananoUtil.getAccount(publicKey, 'ban_');

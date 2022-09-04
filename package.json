@@ -1,6 +1,6 @@
 {
   "name": "nano-ipfs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Tool for converting between IPFS CID v0 and Nano addresses.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
